@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lauren's Capstone</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
+    <script type="text/javascript" src="iscroll.js"></script>
+    <script type="text/javascript" src="demoUtils.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body onload="loaded()">
+    <div class="wrapper">
+        <div class="info-button">
+            <button class="show-popup" onclick="togglePopup();">
+                <img src='info.png' id="info">
+            </button>
+            <button class="restart-button" id="refresh" onclick="togglePopup(); refreshProjection();">
+                <a href="#RESET" onclick="window.location.reload();">
+                    <h2>RESTART</h2>
+                </a>
+            </button>
+
+        </div>
+        <div class="main">
+            <div class="popup" id="popup">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="togglePopup()">&times;</div>
+                    <!-- popup content -->
+                    <div class="howto-popup">
+                        <h1>BEST PRACTICES</h1>
+                        <h1><i>an artwork by Lauren Leung Cramer</i></h1>
+                        <p><i>Best Practices</i> is a website and interactive installation that harkens to early 2000s
+                            bedroom
+                            nostalgia. By searching for and indexing personal objects, visitors unearth anecdotes from
+                            the artist’s own life, collectively forming a larger narrative.
+                            <br>
+                            <br>
+                            <i>Best Practices</i> is the feeling of sifting through the silt of the past and uncovering
+                            memories piece by piece. My childhood memories are elusive. As a result of complex events in
+                            my early years, unconventional family dynamics, and a genetic history of memory loss, these
+                            memories do not come easily, and I often rely on physical memorabilia in the present to
+                            transport me back into the world of the past. Over the years, I have developed an attachment
+                            to collecting trinkets and tchotchkes. These objects feed the desires of my “inner child”;
+                            they represent a time of my life that I still yearn for and feel part of through these
+                            simple means.
+                        </p>
+                        <br>
+                        <h1>HOW TO PLAY</h1>
+                        <p>
+                            Click and drag the mouse to move through the environment and look for hidden objects. Toggle
+                            the index
+                            to see all found/missing objects and
+                            their descriptions. Find all 9 objects to restart the game.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup-2" id="popup-1">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="toggleObject1()">&times;</div>
+                    <!-- popup content -->
+                    <div class="popup-main">
+                        <div class="popup-header">
+                            <h1>DIABLO BUS</h1>
+                        </div>
+                        <div class="popup-left">
+                            <div class="popup-column">
+                                <p>Condition:
+                                    <br>
+                                    Size:
+                                    <br>
+                                    Brand:
+                                    <br>
+                                    Manufactured:
+                                    <br>
+                                    Pattern:
+                                </p>
+                            </div>
+                            <div class="popup-column">
+                                <p>Used
+                                    <br>
+                                    11" x 5" x 4
+                                    <br>
+                                    None
+                                    <br>
+                                    1970-1980
+                                    <br>
+                                    None
+                                </p>
+                            </div>
+                        </div>
+                        <div class="popup-right">
+                            <p>In Ocumicho, Mexican pottery artists lean into the surreal through mischievous and
+                                playful depictions of the devil. Before I was born, my father was mustachioed and drove
+                                thousands of miles in a Volkswagen bus that didn't look too far off from this one. In
+                                his travels, he picked up this ceramic sculpture. For years it sat atop the bookshelf in
+                                my childhood bedroom: a blue devil with his head in the clouds. Those, too, were my
+                                father's doing. With an airbrush and a delicate hand, he painted fluffy white clouds on
+                                my cerulean ceiling so I would always be looking at the sky. But with the devil looking
+                                down at me, I was never quite at ease.
+                            </p>
+                        </div>
+                        <!-- <div class="popup-bottom">
+                            <form class="form">
+                                <p> Found by: <input type="text" class="obj1-name" placeholder="name"> <input
+                                        type="submit"></p>
+                            </form>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup-2" id="popup-2">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="toggleObject2()">&times;</div>
+                    <!-- popup content -->
+                    <div class="popup-main">
+                        <div class="popup-header">
+                            <h1>MR. SPIKE</h1>
+                        </div>
+                        <div class="popup-left">
+                            <div class="popup-column">
+                                <p>Condition:
+                                    <br>
+                                    Size:
+                                    <br>
+                                    Brand:
+                                    <br>
+                                    Manufactured:
+                                    <br>
+                                    Country:
+                                </p>
+                            </div>
+                            <div class="popup-column">
+                                <p>Used
+                                    <br>
+                                    13” x 6” x 3”
+                                    <br>
+                                    None
+                                    <br>
+                                    2009
+                                    <br>
+                                    USA
+                                </p>
+                            </div>
+                        </div>
+                        <div class="popup-right">
+                            <p>Picture this: it’s January 1st, 2009 and you’re 8 years old. You're itching to put new
+                                life into a pair of dirty socks and pajama pants you've outgrown after being spirited
+                                away by the absolute monster that is the UglyDolls franchise. Luckily your mom use to
+                                sew slipcovers for a living, so you scribble some atrocity with two horns and a massive
+                                cranium and name him Mr. Spike-McPatch-man. (An excerpt from my diary: "I know it's a
+                                long name and all but i think it matches his pesonalaty".) By nightfall, he is born.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup-2" id="popup-3">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="toggleObject3()">&times;</div>
+                    <!-- popup content -->
+                    <div class="popup-main">
+                        <div class="popup-header">
+                            <h1>POKEMON SKATEBOARD</h1>
+                        </div>
+                        <div class="popup-left">
+                            <div class="popup-column">
+                                <p>Condition:
+                                    <br>
+                                    Size:
+                                    <br>
+                                    Brand:
+                                    <br>
+                                    Manufactured:
+                                    <br>
+                                    Country:
+                                </p>
+                            </div>
+                            <div class="popup-column">
+                                <p>Used
+                                    <br>
+                                    30" x 9" x 6"
+                                    <br>
+                                    Nintendo
+                                    <br>
+                                    1998
+                                    <br>
+                                    USA
+                                </p>
+                            </div>
+                        </div>
+                        <div class="popup-right">
+                            <p>I am an only child, but I grew up joined at the hip to a family friend named Estella who
+                                was 4 years my elder. She would tease me like an older sister, hiding around the house
+                                and jumping out to scare me as I turned corners, but she would show me love like one
+                                too, teaching me how to play all of her favorite games: all the pieces in chess neatly
+                                drawn on printer paper and inscribed with a handmade instruction manual. I was the
+                                recipient of all her hand-me-downs, too. When a Pokemon craze broke out in my 3rd grade
+                                class, she dug this Ash Ketchum skateboard out her closet and handed it to me with smug
+                                satisfaction.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup-2" id="popup-4">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="toggleObject4()">&times;</div>
+                    <!-- popup content -->
+                    <div class="popup-main">
+                        <div class="popup-header">
+                            <h1>LUCKY FROG</h1>
+                        </div>
+                        <div class="popup-left">
+                            <div class="popup-column">
+                                <p>Condition:
+                                    <br>
+                                    Size:
+                                    <br>
+                                    Brand:
+                                    <br>
+                                    Manufactured:
+                                    <br>
+                                    Country:
+                                </p>
+                            </div>
+                            <div class="popup-column">
+                                <p>Used
+                                    <br>
+                                    4” x 3” x 3”
+                                    <br>
+                                    None
+                                    <br>
+                                    2000-2010
+                                    <br>
+                                    China
+                                </p>
+                            </div>
+                        </div>
+                        <div class="popup-right">
+                            <p>When I asked my mom to buy me a “bobblehead”, what I really meant was a Hasbro Littlest
+                                Pet Shop: those 2-inch-tall rubber toys with bulging anime eyes disproportionately small
+                                bodies. But when she planted in front of me this ceramic Chinatown novelty, I made do.
+                                Something about his wide, all-knowing grin told me not to worry when things got lost in
+                                translation.
+                                What about a frog is so lucky? He mimics the lucky cat, with “left hand for business,
+                                right hand for home”. Googly eyes dancing around in their sockets, he used to sit in the
+                                back of my dad’s Ford Explorer, beckoning us home.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup-2" id="popup-5">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="toggleObject5()">&times;</div>
+                    <!-- popup content -->
+                    <div class="popup-main">
+                        <div class="popup-header">
+                            <h1>GWUN YAM</h1>
+                        </div>
+                        <div class="popup-left">
+                            <div class="popup-column">
+                                <p>Condition:
+                                    <br>
+                                    Size:
+                                    <br>
+                                    Brand:
+                                    <br>
+                                    Manufactured:
+                                    <br>
+                                    Country:
+                                </p>
+                            </div>
+                            <div class="popup-column">
+                                <p>Used
+                                    <br>
+                                    10" x 3" x 3"
+                                    <br>
+                                    None
+                                    <br>
+                                    1990-1990
+                                    <br>
+                                    China
+                                </p>
+                            </div>
+                        </div>
+                        <div class="popup-right">
+                            <p>Gwun Yam (觀音 , or Avalokiteśvara) is the Buddhist bodhisattva of compassion;
+                                depicted often as a woman, sometimes touting an infant son on her arm. Despite her
+                                striking resemblance and common comparison to the Virgin Mary, the two were depicted
+                                centuries and oceans apart - it is a scene that transcends cultural and religious
+                                bounds.
+                            </p>
+                            <br>
+                            <p>
+                                Growing up, I said goodnight to Gwun Yum and her baby every
+                                night. "Give them a kiss" my mother would say, and I'd plant a smooch on each of
+                                their foreheads, thanking them for protecting me (from the monsters under my
+                                bed.) </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup-2" id="popup-6">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="toggleObject6()">&times;</div>
+                    <!-- popup content -->
+                    <div class="popup-main">
+                        <div class="popup-header">
+                            <h1>PINEAPPLE GUAVA</h1>
+                        </div>
+                        <div class="popup-left">
+                            <div class="popup-column">
+                                <p>Condition:
+                                    <br>
+                                    Size:
+                                    <br>
+                                    Brand:
+                                    <br>
+                                    Manufactured:
+                                    <br>
+                                    Country:
+                                </p>
+                            </div>
+                            <div class="popup-column">
+                                <p>New
+                                    <br>
+                                    Palm-sized
+                                    <br>
+                                    None
+                                    <br>
+                                    N/A
+                                    <br>
+                                    USA
+                                </p>
+                            </div>
+                        </div>
+                        <div class="popup-right">
+                            <p>If you've never had a pineapple guava, you must do everything in your capacity to change
+                                that. They grow by the bucketsful in my grandma's backyard and fit perfectly in the palm
+                                of your hand, skin a velvety olive green. When perfectly ripe, they fall to the ground,
+                                and as a child I would collect them in a basket, greedy for the tropical, jammy taste of
+                                my favorite summer fruit. You can slice them in half longways and dig the flesh out with
+                                a spoon, the rounded metal contour a perfect match for their shape. My best friend Lian
+                                called them "guayabas” and she and I would sit on my grandma's patio swing, kicking our
+                                legs and scraping them clean, guava after guava.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup-2" id="popup-7">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="toggleObject7()">&times;</div>
+                    <!-- popup content -->
+                    <div class="popup-main">
+                        <div class="popup-header">
+                            <h1>CRYSTAL QUARTZ</h1>
+                        </div>
+                        <div class="popup-left">
+                            <div class="popup-column">
+                                <p>Condition:
+                                    <br>
+                                    Size:
+                                    <br>
+                                    Brand:
+                                    <br>
+                                    Manufactured:
+                                    <br>
+                                    Country:
+                                </p>
+                            </div>
+                            <div class="popup-column">
+                                <p>Used
+                                    <br>
+                                    5" x 5" x 5"
+                                    <br>
+                                    None
+                                    <br>
+                                    N/A
+                                    <br>
+                                    USA
+                                </p>
+                            </div>
+                        </div>
+                        <div class="popup-right">
+                            <p>My mom bought a house after my parents' divorce: it was beige and flat with a perfectly
+                                rectangular backyard. I remember rummaging in the soil there, not fully able to process
+                                that a place which felt so foreign now belonged only to us two. Beneath a parched and
+                                leafless bush, I found a chunk of quartz caked in dirt. I held it up to the sun and
+                                rotated it in my palm, watching the light refract on its solid faces. Crystal Quartz
+                                supposedly symbolizes cleansing and purifying of energy. It felt, at the time, like a
+                                treasure left behind for me to find in a suburban plot that was no one's in particular.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup-2" id="popup-8">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="toggleObject8()">&times;</div>
+                    <!-- popup content -->
+                    <div class="popup-main">
+                        <div class="popup-header">
+                            <h1>DIARY</h1>
+                        </div>
+                        <div class="popup-left">
+                            <div class="popup-column">
+                                <p>Condition:
+                                    <br>
+                                    Size:
+                                    <br>
+                                    Brand:
+                                    <br>
+                                    Manufactured:
+                                    <br>
+                                    Country:
+                                </p>
+                            </div>
+                            <div class="popup-column">
+                                <p>Used
+                                    <br>
+                                    6" x 8" x 1.5"
+                                    <br>
+                                    Claire's
+                                    <br>
+                                    2000-2010
+                                    <br>
+                                    None
+                                </p>
+                            </div>
+                        </div>
+                        <div class="popup-right">
+                            <p>If a picture is with a thousand words, a diary is worth a thousand pictures. Chock-full
+                                with recounts of all of my crushes, hang-ups, obsessions, and fantasies between the ages
+                                of 7 and 13, nothing paints a picture of the past as clearly as this. At the time, it
+                                was my relief from a world where my body and mind were developing at rapid speeds to
+                                scrawl out my every thought. I have maintained a habit, still, of keeping a diary,
+                                although more so as a gift to my future self. While the fear of my unruly memory can at
+                                times feel paralyzing, there is comfort in words on paper which are so permanent.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup popup-2" id="popup-9">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="toggleObject9()">&times;</div>
+                    <!-- popup content -->
+                    <div class="popup-main">
+                        <div class="popup-header">
+                            <h1>AQUAPET</h1>
+                        </div>
+                        <div class="popup-left">
+                            <div class="popup-column">
+                                <p>Condition:
+                                    <br>
+                                    Size:
+                                    <br>
+                                    Brand:
+                                    <br>
+                                    Manufactured:
+                                    <br>
+                                    Pattern:
+                                </p>
+                            </div>
+                            <div class="popup-column">
+                                <p>Used
+                                    <br>
+                                    4" x 2" x 2"
+                                    <br>
+                                    Wild Planet Toys
+                                    <br>
+                                    2004
+                                    <br>
+                                    Unknown
+                                </p>
+                            </div>
+                        </div>
+                        <div class="popup-right">
+                            <p>An Aquapet is essentially a phallic snowglobe that plays music. There is a mechanism that
+                                puppeteers a small plastic alien encapsulated inside in such a way that will secure the
+                                attention of a child for at least a day, at most a week. But Aquapets are born to die -
+                                they are the epitome of planned obsolescence, as once the small amount of water inside
+                                of them evaporates, the alien will sink the the bottom, never to dance again. One might
+                                call it my earliest concept of impermanence.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--- TJS START -->
+            <!--- TJS START -->
+            <!--- TJS START -->
+            <!--- TJS START -->
+
+            <div class="popup popup-you-win" id="popup-you-win">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="bar"></div>
+                    <div class="close-btn" onclick="toggleObjectWinScreen();toggleRefresh();">&times;</div>
+                    <!-- popup content -->
+                    <div class="howto-popup">
+                        <h1>THANK YOU FOR PLAYING!</h1>
+                        <br>
+                        <div class="dog">
+                            <img src="gejiinu2.gif">
+                        </div>
+                        <br>
+                        <button class="restart-button-popup">
+                            <a href="#RESET" onclick="window.location.reload(); refreshProjection();">
+                                <h2>RESTART</h2>
+                            </a>
+                        </button>
+                            <!-- <a href="#RESET" onclick="window.location.reload();">
+                                <h1>RESTART</h1>
+                            </a> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- begin parallax html -->
+            <div id="wrapper" width:100000px; height:100000px;>
+                <div id="scroller">
+
+                    <img src="object1.png" class="object-all" id="object-1" data-videourl="window1.html"
+                        onclick="toggleObject1()">
+                    <img src="object2.png" class="object-all" id="object-2" data-videourl="window2.html"
+                        onclick="toggleObject2()">
+                    <img src="object3.png" class="object-all" id="object-3" data-videourl="window3.html"
+                        onclick="toggleObject3()">
+                    <img src="object4.png" class="object-all" id="object-4" data-videourl="window4.html"
+                        onclick="toggleObject4()">
+                    <img src="object5.png" class="object-all" id="object-5" data-videourl="window5.html"
+                        onclick="toggleObject5()">
+                    <img src="object6.png" class="object-all" id="object-6" data-videourl="window6.html"
+                        onclick="toggleObject6()">
+                    <img src="object7.png" class="object-all" id="object-7" data-videourl="window7.html"
+                        onclick="toggleObject7()">
+                    <img src="object8.png" class="object-all" id="object-8" data-videourl="window8.html"
+                        onclick="toggleObject8()">
+                    <img src="object9.png" class="object-all" id="object-9" data-videourl="window9.html"
+                        onclick="toggleObject9()">
+                </div>
+            </div>
+
+
+            <!--- TJS END -->
+            <!--- TJS END -->
+            <!--- TJS END -->
+            <!--- TJS END -->
+
+
+            <div class="starfield" id="starfield1">
+                <div id="stars1"></div>
+            </div>
+
+            <div class="starfield" id="starfield2">
+                <div id="stars2">
+                </div>
+            </div>
+            <!-- end parallax html -->
+        </div>
+        <button class="side-panel-toggle" type="button">
+            <span class="index-button">
+                <h2>INDEX</h2>
+            </span>
+
+        </button>
+        <div class="side-panel">
+            <!-- This is the side panel content. -->
+            <div class="index-container">
+                <div class="index-item index-item-1">
+                    <div id="object-1-image">
+                        <img src="object1-lost.png" alt="plane" class="center">
+                    </div>
+                    <hr>
+                    <div id="object-1-text">
+                        <h2>???</h2>
+                    </div>
+                </div>
+                <div class="index-item index-item-2">
+                    <div id="object-2-image">
+                        <img src="object2-lost.png" alt="plane" class="center">
+                    </div>
+                    <hr>
+                    <div id="object-2-text">
+                        <h2>???</h2>
+                    </div>
+                </div>
+                <div class="index-item index-item-3">
+                    <div id="object-3-image">
+                        <img src="object3-lost.png" alt="plane" class="center">
+                    </div>
+                    <hr>
+                    <div id="object-3-text">
+                        <h2>???</h2>
+                    </div>
+                </div>
+                <div class="index-item index-item-4">
+                    <div id="object-4-image">
+                        <img src="object4-lost.png" alt="plane" class="center">
+                    </div>
+                    <hr>
+                    <div id="object-4-text">
+                        <h2>???</h2>
+                    </div>
+                </div>
+                <div class="index-item index-item-5">
+                    <div id="object-5-image">
+                        <img src="object5-lost.png" alt="plane" class="center">
+                    </div>
+                    <hr>
+                    <div id="object-5-text">
+                        <h2>???</h2>
+                    </div>
+                </div>
+                <div class="index-item index-item-6">
+                    <div id="object-6-image" class="center">
+                        <img src="object6-lost.png" alt="plane" id="guava">
+                    </div>
+                    <hr>
+                    <div id="object-6-text">
+                        <h2>???</h2>
+                    </div>
+                </div>
+                <div class="index-item index-item-7">
+                    <div id="object-7-image">
+                        <img src="object7-lost.png" alt="plane" class="center">
+                    </div>
+                    <hr>
+                    <div id="object-7-text">
+                        <h2>???</h2>
+                    </div>
+                </div>
+                <div class="index-item index-item-8">
+                    <div id="object-8-image">
+                        <img src="object8-lost.png" alt="plane" class="center">
+                    </div>
+                    <hr>
+                    <div id="object-8-text">
+                        <h2>???</h2>
+                    </div>
+                </div>
+                <div class="index-item index-item-9">
+                    <div id="object-9-image">
+                        <img src="object9-lost.png" alt="plane" class="center">
+                    </div>
+                    <hr>
+                    <div id="object-9-text">
+                        <h2>???</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>toggleSidePanel()</script>
+    <script>toggleWindow()</script>
+</body>
+
+</html>
